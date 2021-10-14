@@ -17,4 +17,6 @@ int imprimirPedidosPendentes(Epedido* list, int lenP, Ecliente* listC, int lenC)
 
 int imprimirPedidosProcesados(Epedido* list, int lenP, Ecliente* listC, int lenC);
 
+int cantidadPedidosPorLocalidad(Epedido* listP, int lenP, Ecliente* listC, int lenC);
+
 #endif /* INFORMES_H_ */

@@ -23,7 +23,7 @@ int initEclientes(Ecliente* list, int len)
 	return stateInit;
 }
 
-int agregarEcliente(Ecliente* list, int len, int id,char nombreEmpresa[], int cuit, char dirreccion[], char localidad[]){
+int agregarEcliente(Ecliente* list, int len, int id,char nombreEmpresa[], int cuit, char dirreccion[], int idLOcalidad){
 	int stateAdd;
 	int index;
 	stateAdd=-1;
@@ -33,7 +33,7 @@ int agregarEcliente(Ecliente* list, int len, int id,char nombreEmpresa[], int cu
 			list[index].id=id;
 			strcpy(list[index].nombreEmpresa, nombreEmpresa);
 			strcpy(list[index].dirreccion, dirreccion);
-			strcpy(list[index].localidad, localidad);
+			list[index].idLocalidad=idLOcalidad;
 			list[index].cuit=cuit;
 			list[index].isEmpty=FULL;
 			stateAdd=0;
@@ -66,7 +66,7 @@ int findEclienteById(Ecliente* list, int len,int id){
 	}
 	return index;
 }
-int modificarEcliente(Ecliente* list, int len, int id,char dirreccion[], char localidad[]){
+int modificarEcliente(Ecliente* list, int len, int id,char dirreccion[], int idLocalidad){
 	int stateMod;
 		int index;
 		stateMod=-1;
@@ -74,7 +74,7 @@ int modificarEcliente(Ecliente* list, int len, int id,char dirreccion[], char lo
 			index= findEclienteById(list, len, id);
 			if(index != -1){
 				strcpy(list[index].dirreccion, dirreccion);
-				strcpy(list[index].localidad, localidad);
+				list[index].idLocalidad=idLocalidad;
 				stateMod=0;
 			}
 		}

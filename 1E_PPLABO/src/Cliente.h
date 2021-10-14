@@ -14,7 +14,7 @@ struct
 	char nombreEmpresa[51];
 	int cuit;
 	char dirreccion[51];
-	char localidad[51];
+	int idLocalidad;
 	int isEmpty;
 }typedef Ecliente;
 
@@ -36,9 +36,9 @@ int initEclientes(Ecliente* list, int len);
  * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  *
  */
-int agregarEcliente(Ecliente* list, int len, int id,char nombreEmpresa[], int cuit, char dirreccion[], char localidad[]);
+int agregarEcliente(Ecliente* list, int len, int id,char nombreEmpresa[], int cuit, char dirreccion[], int idLOcalidad);
 
-int modificarEcliente(Ecliente* list, int len, int id,char dirreccion[], char localidad[]);
+int modificarEcliente(Ecliente* list, int len, int id,char dirreccion[], int idLocalidad);
 
 int eliminarEcliente(Ecliente* list, int len, int id);
 

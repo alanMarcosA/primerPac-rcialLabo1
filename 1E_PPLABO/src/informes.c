@@ -20,7 +20,7 @@ int imprimirClientes(Ecliente* list, int len, Epedido* listP, int lenP){
 		for(int i=0; i<len ;i++){
 			if(list[i].isEmpty==FULL){
 				cantPedidos = pedidosPendientesPorIdCli(listP, lenP, list[i].id);
-				printf("\%d \t \%s \t \%d \t \%s \t \%s \t \%d \n",list[i].id, list[i].nombreEmpresa,list[i].cuit,list[i].dirreccion,list[i].localidad,cantPedidos);
+				printf("\%d \t \%s \t \%d \t \%s \t \%d \t \%d \n",list[i].id, list[i].nombreEmpresa,list[i].cuit,list[i].dirreccion,list[i].idLocalidad,cantPedidos);
 			}
 			statePrint=0;
 		}
@@ -63,4 +63,25 @@ int imprimirPedidosProcesados(Epedido* list, int lenP, Ecliente* listC, int lenC
 		}
 	}
 	return statePrint;
+}
+
+int cantidadPedidosPorLocalidad(Epedido* listP, int lenP, Ecliente* listC, int lenC){
+	int stateLoc;
+	stateLoc=-1;
+
+	return stateLoc;
+}
+
+int clienteConMasPendientes(Ecliente* list, int len, Epedido* listP, int lenP){
+	int stateCant;
+	int cantPedidos;
+	stateCant=-1;
+	if(list != NULL && len > 0){
+
+		for(int i=0; i<len ;i++){
+
+			stateCant=0;
+		}
+	}
+	return stateCant;
 }

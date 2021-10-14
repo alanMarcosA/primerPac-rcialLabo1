@@ -13,14 +13,17 @@
 #include <string.h>
 #include "Cliente.h"
 #include "Pedido.h"
+#include "Localidad.h"
 #include "informes.h"
 #include "UtnInputs.h"
 #define TAMCLI 100
 #define TAMPED 1000
+#define TAMLOC 10
 int main(void) {
 	setbuf(stdout, NULL);
 	Ecliente clientes[TAMCLI];
 	Epedido pedidos[TAMPED];
+	Elocalidad localidades[TAMLOC];
 	initEclientes(clientes, TAMCLI);
 	initEpedidos(pedidos, TAMPED);
 	int opcion;
@@ -30,12 +33,15 @@ int main(void) {
 	char localidad[51];
 
 	//precargar datos
-	agregarEcliente(clientes, TAMCLI, 1, "Fanta", 12345678, "mouse 123", "caba");
-	agregarEcliente(clientes, TAMCLI, 2, "DELL", 1010101010, "calle 2", "caba");
-	agregarEcliente(clientes, TAMCLI, 3, "USB", 4024039211, "alfajor 2424", "caba");
+	agregarElocalidad(localidades, TAMLOC, 1, "caba");
+	agregarElocalidad(localidades, TAMLOC, 1, "tres de febrero");
+	agregarEcliente(clientes, TAMCLI, 1, "Fanta", 12345678, "mouse 123", 1);
+	agregarEcliente(clientes, TAMCLI, 2, "DELL", 1010101010, "calle 2", 2);
+	agregarEcliente(clientes, TAMCLI, 3, "USB", 4024039211, "alfajor 2424", 1);
 	crearPedido(pedidos, TAMPED, 1, 2, 4);
 	crearPedido(pedidos, TAMPED, 1, 1, 10);
 	crearPedido(pedidos, TAMPED, 1, 1, 20);
+	//crearPedido(list, len, id, idCliente, kilosTotales)
 	do{
 	    printf("1. Alta de Cliente\n");
 	    printf("2. Modificar datos del Cliente\n");
