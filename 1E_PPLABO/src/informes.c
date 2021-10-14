@@ -74,14 +74,74 @@ int cantidadPedidosPorLocalidad(Epedido* listP, int lenP, Ecliente* listC, int l
 
 int clienteConMasPendientes(Ecliente* list, int len, Epedido* listP, int lenP){
 	int stateCant;
-	int cantPedidos;
+	int idConMasPedidos;
+	int maxPedidos;
+	int pedidosAux;
+	maxPedidos=-1;
 	stateCant=-1;
 	if(list != NULL && len > 0){
 
 		for(int i=0; i<len ;i++){
+			if(list[i].isEmpty==FULL){
+				pedidosAux = pedidosPendientesPorIdCli(listP, len, list[i].id);
+				if(pedidosAux>maxPedidos){
+					maxPedidos=pedidosAux;
+					idConMasPedidos=i;
+				}
+			}
 
 			stateCant=0;
 		}
+		printf("el cliente con mas pedidos pendientes es %d %s \n", list[idConMasPedidos].id, list[idConMasPedidos].nombreEmpresa);
+	}
+	return stateCant;
+}
+
+int clienteConMasCompletados(Ecliente* list, int len, Epedido* listP, int lenP){
+	int stateCant;
+	int idConMasPedidos;
+	int maxPedidos;
+	int pedidosAux;
+	maxPedidos=-1;
+	stateCant=-1;
+	if(list != NULL && len > 0){
+
+		for(int i=0; i<len ;i++){
+			if(list[i].isEmpty==FULL){
+				pedidosAux = pedidosCompletadosPorIdCli(listP, len, list[i].id);
+				if(pedidosAux>maxPedidos){
+					maxPedidos=pedidosAux;
+					idConMasPedidos=i;
+				}
+			}
+
+			stateCant=0;
+		}
+		printf("el cliente con mas pedidos Completados es %d %s \n", list[idConMasPedidos].id, list[idConMasPedidos].nombreEmpresa);
+	}
+	return stateCant;
+}
+int clienteConMasPedidos(Ecliente* list, int len, Epedido* listP, int lenP){
+	int stateCant;
+	int idConMasPedidos;
+	int maxPedidos;
+	int pedidosAux;
+	maxPedidos=-1;
+	stateCant=-1;
+	if(list != NULL && len > 0){
+
+		for(int i=0; i<len ;i++){
+			if(list[i].isEmpty==FULL){
+				pedidosAux = pedidosCompletadosPorIdCli(listP, len, list[i].id) + pedidosPendientesPorIdCli(listP, len, list[i].id);
+				if(pedidosAux>maxPedidos){
+					maxPedidos=pedidosAux;
+					idConMasPedidos=i;
+				}
+			}
+
+			stateCant=0;
+		}
+		printf("el cliente con mas pedidos es %d %s \n", list[idConMasPedidos].id, list[idConMasPedidos].nombreEmpresa);
 	}
 	return stateCant;
 }

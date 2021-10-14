@@ -92,7 +92,21 @@ int pedidosPendientesPorIdCli(Epedido* list, int len,int idCliente){
 		for(int i=0; i < len; i++){
 			stateCant=0;
 			if(list[i].idCliente == idCliente && list[i].isEmpty==FULL && list[i].stado==PENDING){
-				stateCant++;
+				stateCant=stateCant +1;
+			}
+		}
+	}
+	return stateCant;
+}
+
+int pedidosCompletadosPorIdCli(Epedido* list, int len,int idCliente){
+	int stateCant;
+	stateCant=-1;
+	if(list != NULL && len > 0){
+		for(int i=0; i < len; i++){
+			stateCant=0;
+			if(list[i].idCliente == idCliente && list[i].isEmpty==FULL && list[i].stado==COMPLETED){
+				stateCant=stateCant +1;
 			}
 		}
 	}

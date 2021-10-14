@@ -44,4 +44,5 @@ int procesarResiduos(Epedido* list, int len, int id,float kilosHDPE,float kilosL
  *
  */
 int pedidosPendientesPorIdCli(Epedido* list, int len,int idCliente);
+int pedidosCompletadosPorIdCli(Epedido* list, int len,int idCliente);
 #endif /* PEDIDO_H_ */
